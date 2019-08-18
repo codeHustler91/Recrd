@@ -1,14 +1,11 @@
 import React from 'react';
-import './App.css';
+import './styles.css';
+import MainContainer from './MainConatainer'
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
+      < MainContainer />
     </div>
   );
 }
-
-export default App;
