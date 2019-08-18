@@ -3,6 +3,9 @@ import React from 'react'
 export default function ActiveTask() {
 
     return(
-        <h1>Active Task goes here!! </h1>
+        <div className='sub-container'>
+            <h1>Active Task</h1>
+            <p>No task selected</p>
+        </div>
     )
 }

@@ -12,8 +12,8 @@ export default function TaskList(props) {
 
 
     return(
-        <div>
+        <ul>
             {displayTasks()}
-        </div>
+        </ul>
     )
 }

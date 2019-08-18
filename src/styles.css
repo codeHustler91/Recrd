@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Slab&display=swap');
+
 body {
     color: rgb(236, 215, 208);
     background-color: rgb(51, 46, 46);
     margin: 0;
+    font-family: 'Roboto Slab', serif;
 }
 header {
     display: flex;
@@ -10,14 +13,22 @@ header {
     align-items: center;
     border-bottom: 2px solid rgb(241, 141, 27);
 }
+header h1 {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 2em;
+}
 
 #main-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
 }
-
+.sub-container {
+    border-left: 2px solid rgb(241, 141, 27);
+    padding: 0 10px;
+}
 
 
 
@@ -27,9 +38,11 @@ header {
 
 /* reset */
 h1 {
+    font-size: 1.5em;
     display: block;
     margin: 0.25em 0;
-    font-weight: normal;
+    font-family: 'Lora', serif;
+    font-weight: 400;
 }
 h3 {
     display: block;
