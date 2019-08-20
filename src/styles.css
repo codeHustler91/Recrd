@@ -1,33 +1,58 @@
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i&display=swap');
 
 body {
     color: rgb(236, 215, 208);
     background-color: rgb(51, 46, 46);
     margin: 0;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 header {
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0 15px;
     align-items: center;
     border-bottom: 2px solid rgb(241, 141, 27);
 }
 header h1 {
-    font-family: 'Lora', serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
     font-style: italic;
     font-size: 2em;
 }
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 15px;
+    align-items: center;
+    border-top: 1px solid rgb(241, 141, 27);
+}
 
 #main-container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 .sub-container {
-    border-left: 2px solid rgb(241, 141, 27);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2%;
+    justify-content: space-between;
+}
+.component-container {
+    border-left: 1px solid rgb(241, 141, 27);
     padding: 0 10px;
+}
+.splash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+}
+.splash h2 {
+    font-size: 3em;
+    font-style: italic;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
 }
 
 
@@ -38,10 +63,9 @@ header h1 {
 
 /* reset */
 h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     display: block;
     margin: 0.25em 0;
-    font-family: 'Lora', serif;
     font-weight: 400;
 }
 h3 {

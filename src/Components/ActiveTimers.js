@@ -4,7 +4,7 @@ import Timer from './Timer'
 export default function ActiveTimer() {
 
     return(
-        <div className='sub-container'>
+        <div className='component-container'>
             <h1>Active Timers</h1>
             < Timer title={'Walk the dog'}/>
             < Timer title={'Walk to School'}/>
