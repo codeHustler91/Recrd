@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { Component } from 'react'
 import TaskList from './TaskList'
+import NewTaskForm from './NewTaskForm';
 
-export default function TaskListContainer(props) {
+export default class TaskListContainer extends Component {
 
-    const displayName = () => {
-        return props.profile.length === 0
-            ? null
-            : <h1>{props.profile.data.attributes.name.toUpperCase()}'s Task List</h1>
+    state = {
+        showForm: false,
+        tasks: [...this.props.profile.data.attributes.tasks]
     }
 
-    // console.log('taskListContainer', props.profile.data.attributes.tasks)
+    addTask = (event, taskObject) => {
+        event.preventDefault()
+        this.setState({
+            tasks: [...this.state.tasks, taskObject]
+        })
+        event.target.reset()
+    }
+
+    showForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
+    }
+
+    displayName = () => {
+        return <h1>{this.props.profile.data.attributes.name.toUpperCase()}'s Task List</h1>
+    }
     
-    return(
-        <div className='component-container'>
-            {displayName()}
-            <TaskList tasks={
-                    props.profile.length === 0
-                        ? null
-                        : props.profile.data.attributes.tasks
-                    } />
-            <button>New Task</button>
-            <button>New Timer</button>
-        </div>
-    )
+    render(){
+        const conditionalForm = this.state.showForm === true ? <NewTaskForm addTask={this.addTask}/> : null
+        return(
+            <div className='component-container'>
+                {this.displayName()}
+                <div className='component-list'>
+                    <TaskList 
+                        setActiveTask={this.props.setActiveTask}
+                        profile={this.props.profile.data} 
+                        tasks={this.state.tasks}
+                    />
+                    <button onClick={()=>this.showForm()}>New Task</button>
+                    <button>New Timer</button>
+                    {conditionalForm}
+                </div>
+            </div>
+        )
+    }
 }

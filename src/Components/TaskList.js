@@ -3,36 +3,18 @@ import Task from './Task'
 
 export default function TaskList(props) {
 
-    const ifNoProps = () => {
-        console.log('tasklist', props)
-        return props.tasks === null
-            ? null
-            : displayTasks()
-    }
     const displayTasks = () => {
-        return props.tasks.map(tasker => {
+        return props.tasks.map(task => {
             return(
-                < Task task={tasker} />
+                < Task setActiveTask={props.setActiveTask} 
+                    task={task} 
+                />
             )
         })
     }
-        //     return <Task task={tasker} />
-        // })
-    // const displaytasks = () => {
-    //     props.profile.data.tasks.map(task => {
-    //         return(
-    //             <div>
-    //                 <h3>{task.title}</h3>
-    //                 <p>{task.description}</p>
-    //             </div>
-    //         )
-    //     })
-    // }
-
-
     return(
         <ul>
-            {ifNoProps()}
+            {displayTasks()}
         </ul>
     )
 }

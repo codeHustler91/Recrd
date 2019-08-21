@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles.css'
-import ActiveTask from './Components/ActiveTask'
+import ActiveTaskContainer from './Components/ActiveTaskContainer'
 import ActiveTimers from './Components/ActiveTimers'
 import TaskListContainer from './Components/TaskListContainer';
 import Login from './Components/Login';
@@ -10,11 +10,22 @@ import AppNotFound from './Components/AppNotFound';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-export default class MainContainer extends Component {
+export default class App extends Component {
 
     state = {
-        profile: [],
-        loggedIn: false
+        profile: {},
+        loggedIn: false,
+        activeTask: {},
+        activeAttempts: []
+    }
+    setActiveTask = (task) => {
+        const attempts = this.state.profile.data.attributes.attempts.filter( attempt => {
+            return attempt.task_id === task.id })
+        console.log('attempts', attempts)
+        this.setState({
+            activeTask: task,
+            activeAttempts: attempts
+        })
     }
 
     login = (id) => {
@@ -22,16 +33,26 @@ export default class MainContainer extends Component {
             .then(resp => resp.json())
             .then(profile => this.setState({ profile, loggedIn: true }))
     }
+    ifLoggedIn = () => {
+        return this.state.loggedIn === true
+            ? (<main className='sub-container'>
+                < TaskListContainer 
+                    profile={this.state.profile} 
+                    setActiveTask={this.setActiveTask}/>
+                < ActiveTaskContainer 
+                    profile={this.state.profile} 
+                    activeTask={this.state.activeTask} 
+                    activeAttempts={this.state.activeAttempts} />
+                < ActiveTimers />
+            </main>)
+            : null
+    }
 
     main = () => {
         return(
             <div id='main-container'>
                 <Header />
-                <main className='sub-container'>
-                    < TaskListContainer profile={this.state.profile} />
-                    < ActiveTask profile={this.state.profile}/>
-                    < ActiveTimers />
-                </main>
+                {this.ifLoggedIn()}
             </div>
         )
     }
