@@ -38,7 +38,9 @@ export default class TaskListContainer extends Component {
                         profile={this.props.profile.data} 
                         tasks={this.state.tasks}
                     />
-                    <button onClick={()=>this.showForm()}>New Task</button>
+                    <button onClick={()=>this.showForm()}>
+                        {this.state.showForm ? 'Hide Form' : 'New Task'}
+                    </button>
                     <button>New Timer</button>
                     {conditionalForm}
                 </div>

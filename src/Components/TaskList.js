@@ -8,6 +8,7 @@ export default function TaskList(props) {
             return(
                 < Task setActiveTask={props.setActiveTask} 
                     task={task} 
+                    key={task.id || (Math.floor(Math.random() * Math.floor(1000)))}
                 />
             )
         })

@@ -22,7 +22,7 @@ export default function ActiveTask(props) {
                 {displayAttempts()}
             </ul>
             <button>Edit Task</button>
-            <button>New Timer</button>
+            <button onClick={props.addTimer}>New Timer</button>
         </div>
     )
 }

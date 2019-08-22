@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './styles.css'
 import ActiveTaskContainer from './Components/ActiveTaskContainer'
-import ActiveTimers from './Components/ActiveTimers'
+import ActiveTimerContainer from './Components/ActiveTimerContainer'
 import TaskListContainer from './Components/TaskListContainer';
 import Login from './Components/Login';
 import Settings from './Components/Settings';
@@ -16,7 +16,8 @@ export default class App extends Component {
         profile: {},
         loggedIn: false,
         activeTask: {},
-        activeAttempts: []
+        activeAttempts: [],
+        timers: []
     }
     setActiveTask = (task) => {
         const attempts = this.state.profile.data.attributes.attempts.filter( attempt => {
@@ -25,6 +26,15 @@ export default class App extends Component {
         this.setState({
             activeTask: task,
             activeAttempts: attempts
+        })
+    }
+    addTimer = () => {
+        const timerTask = {
+            taskId: this.state.activeTask.id,
+            title: this.state.activeTask.title
+            }
+        this.setState({
+            timers: [...this.state.timers, timerTask]
         })
     }
 
@@ -41,9 +51,11 @@ export default class App extends Component {
                     setActiveTask={this.setActiveTask}/>
                 < ActiveTaskContainer 
                     profile={this.state.profile} 
+                    addTimer={this.addTimer}
                     activeTask={this.state.activeTask} 
                     activeAttempts={this.state.activeAttempts} />
-                < ActiveTimers />
+                < ActiveTimerContainer 
+                    timers={this.state.timers}/>
             </main>)
             : null
     }
@@ -51,7 +63,7 @@ export default class App extends Component {
     main = () => {
         return(
             <div id='main-container'>
-                <Header />
+                <Header isLoggedIn={this.state.loggedIn}/>
                 {this.ifLoggedIn()}
             </div>
         )

@@ -6,7 +6,10 @@ export default function ActiveTaskContainer(props) {
     const conditionalRender = () => {
         return props.activeTask.id === undefined
             ? <p>No task selected</p>
-            : < ActiveTask activeTask={props.activeTask} activeAttempts={props.activeAttempts} />
+            : < ActiveTask activeTask={props.activeTask} 
+                activeAttempts={props.activeAttempts} 
+                addTimer={props.addTimer}
+            />
     }
     return(
         <div className='component-container'>

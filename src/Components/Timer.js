@@ -1,13 +1,48 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default class Timer extends Component {
-    state = {
-        time: 0
+const Timer = (props) => {
+
+    const [ seconds, setSeconds ] = useState(0);
+    const [ isOn, setIsOn ] = useState(false);
+
+    const toggle = () => {
+        setIsOn(!isOn)
+    }
+    const reset = () => {
+        setSeconds(0)
+        setIsOn(false)
+    }
+    useEffect(() => {
+        let interval = null;
+        if (isOn) {
+            interval = setInterval(() => {
+                setSeconds(seconds => seconds + 0.5)
+            }, 500)
+        } else if (!isOn && seconds !== 0) {
+            clearInterval(interval)
+        }
+        return () => clearInterval(interval)
+    }, [isOn, seconds]);
+    const displaytime = () => {
+        if (seconds < 60) {
+            return `${seconds}s`
+        } else if ( seconds > 60 && seconds < 3600 ) {
+            return `${(seconds / 60).toFixed(2) }mins`
+        } else if ( seconds >= 3600 ) {
+            return `${(seconds / 3600).toFixed(2) }hours`
+        } else return seconds
     }
 
-    render() {
-        return (
-            <p>Timer Goes Here!!!! {this.state.time}</p>
-        )
-    }
+    return (
+        <div className='timer'>
+            <h3>Timer for: {props.title}</h3>
+            <div className='time'>
+                <p>{displaytime()}</p>
+            </div>
+            <button onClick={toggle}>{isOn ? 'Pause' : 'Start'}</button>
+            <button>Log {props.taskId}</button>
+            <button onClick={reset}>Reset</button>
+        </div>
+    )
 }
+export default Timer;
