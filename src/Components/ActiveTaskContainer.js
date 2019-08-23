@@ -63,7 +63,7 @@ export default class ActiveTaskContainer extends Component {
                     </button>
                     <button onClick={this.props.addTimer}>New Timer</button>
                     {this.conditionalForm()}
-                    <Metric attempts={this.props.profile.data.attributes.attempts} />
+                    <Metric attempts={this.props.activeAttempts} />
                 </div>
             </div>
         )

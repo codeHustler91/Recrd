@@ -30,11 +30,7 @@ export default class NewTaskForm extends Component {
     }
 
     render(){
-        // const taskObject = {
-            //     title: this.state.title,
-            //     note: this.state.note
-            // }
-            // this.props.addTask(event, taskObject)
+
         return(
             <form onSubmit={this.createTask}>
                 <label>

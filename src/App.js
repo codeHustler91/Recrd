@@ -19,12 +19,13 @@ export default class App extends Component {
         activeAttempts: [],
         timers: []
     }
-    setActiveTask = (task) => {
+    setActiveTask = (taskId) => {
+        const task = this.state.profile.data.attributes.tasks.filter(task => {
+            return task.id === taskId })
         const attempts = this.state.profile.data.attributes.attempts.filter( attempt => {
-            return attempt.task_id === task.id })
-        console.log('attempts', attempts)
+            return attempt.task_id === taskId })
         this.setState({
-            activeTask: task,
+            activeTask: task[0],
             activeAttempts: attempts
         })
     }
@@ -48,10 +49,12 @@ export default class App extends Component {
                 })
         })
     }
+
     ifLoggedIn = () => {
         return this.state.loggedIn === true
             ? (<main className='sub-container'>
                 < TaskListContainer 
+                    tasks={this.state.profile.data.attributes.tasks}
                     profile={this.state.profile} 
                     setActiveTask={this.setActiveTask}
                     getProfile={this.getProfile} />
@@ -62,7 +65,9 @@ export default class App extends Component {
                     activeTask={this.state.activeTask} 
                     activeAttempts={this.state.activeAttempts} />
                 < ActiveTimerContainer 
+                    activeTask={this.state.activeTask} 
                     timers={this.state.timers}
+                    setActiveTask={this.setActiveTask}
                     getProfile={this.getProfile}
                     profile={this.state.profile} />
             </main>)

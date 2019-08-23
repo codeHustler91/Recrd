@@ -5,7 +5,12 @@ export default function ActiveTimerContainer(props) {
 
     const displayTimers = () => {
         return props.timers.map(timer => {
-            return <Timer title={timer.title} taskId={timer.taskId} postTime={postTime}/>
+            return <Timer title={timer.title} 
+                        activeTask={props.activeTask} 
+                        taskId={timer.taskId} 
+                        postTime={postTime} 
+                        setActiveTask={props.setActiveTask}
+                    />
         })
     }
     const postTime = (event, data) => {

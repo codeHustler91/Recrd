@@ -8,14 +8,6 @@ export default class TaskListContainer extends Component {
         showForm: false
     }
 
-    addTask = (event, taskObject) => {
-        event.preventDefault()
-        this.setState({
-            tasks: [...this.state.tasks, taskObject]
-        })
-        event.target.reset()
-    }
-
     showForm = () => {
         this.setState({
             showForm: !this.state.showForm
@@ -30,7 +22,6 @@ export default class TaskListContainer extends Component {
         const conditionalForm = this.state.showForm === true 
             ? <NewTaskForm 
                 profile={this.props.profile} 
-                addTask={this.addTask} 
                 showForm={this.showForm}
                 getProfile={this.props.getProfile}/> 
             : null
@@ -45,7 +36,7 @@ export default class TaskListContainer extends Component {
                     <TaskList 
                         setActiveTask={this.props.setActiveTask}
                         profile={this.props.profile.data} 
-                        tasks={this.props.profile.data.attributes.tasks}
+                        tasks={this.props.tasks}
                     />
                 </div>
             </div>
