@@ -46,7 +46,7 @@ const Timer = (props) => {
                 {isOn ? 'Pause' : 'Start'}
             </button>
             <button onClick={(event) => props.postTime(event, {task_id: props.taskId, duration: seconds})}>
-                Log {props.taskId}
+                Log
             </button>
             <button onClick={reset}>
                 Reset

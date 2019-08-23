@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import EditTaskForm from './EditTaskForm'
+import Metric from './Metric'
 
 
 export default class ActiveTaskContainer extends Component {
@@ -62,15 +63,8 @@ export default class ActiveTaskContainer extends Component {
                     </button>
                     <button onClick={this.props.addTimer}>New Timer</button>
                     {this.conditionalForm()}
+                    <Metric attempts={this.props.profile.data.attributes.attempts} />
                 </div>
-                {/* < ActiveTask activeTask={this.props.activeTask} 
-                    activeAttempts={this.props.activeAttempts} 
-                    addTimer={this.props.addTimer}
-                    getProfile={this.props.getProfile}
-                    showForm={this.showForm}
-                    isShowForm={this.state.showForm}
-                    profile={this.props.profile} /> */}
-                {/* {this.conditionalTasks()} */}
             </div>
         )
     }

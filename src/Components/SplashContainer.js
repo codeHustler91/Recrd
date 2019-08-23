@@ -4,7 +4,6 @@ import Register from './Register'
 
 export default function SplashContainer(props) {
 
-
     return(
         <div className='splash-container'>
             <h2>RECRD</h2>
