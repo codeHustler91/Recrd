@@ -34,6 +34,10 @@ const Timer = (props) => {
             return `${(seconds / 3600).toFixed(2) }hours`
         } else return seconds
     }
+    const postAndReset = (event) => {
+        props.postTime(event, {task_id: props.taskId, duration: seconds})
+        setSeconds(0)
+    }
 
     return (
         <div className='timer'>
@@ -46,8 +50,8 @@ const Timer = (props) => {
             <button onClick={toggle}>
                 {isOn ? 'Pause' : 'Start'}
             </button>
-            <button onClick={(event) => props.postTime(event, {task_id: props.taskId, duration: seconds})}>
-                Log
+            <button onClick={postAndReset}>
+                Log Split
             </button>
             <button onClick={reset}>
                 Reset

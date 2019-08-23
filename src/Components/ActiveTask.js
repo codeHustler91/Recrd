@@ -7,7 +7,7 @@ export default function ActiveTask(props) {
     const displayAttempts = () => {
         return props.activeAttempts.map(attempt => {
             return <li className='new-item' key={attempt.id}>
-                        Attempt: {attempt.duration}seconds
+                        Attempt: {attempt.duration} seconds
                         <Delete />
                     </li>
         })

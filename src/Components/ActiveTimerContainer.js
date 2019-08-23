@@ -25,7 +25,7 @@ export default function ActiveTimerContainer(props) {
         <div className='component-container'>
             <h1>{props.timers.length > 0 
                     ? 'Active Timers' 
-                    : 'Timers go here'}
+                    : 'No Active Timers'}
             </h1>
             <div className='reverse-column'>
                 {displayTimers()}
