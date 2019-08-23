@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Delete from './Delete'
 
 const Timer = (props) => {
 
@@ -51,6 +52,7 @@ const Timer = (props) => {
             <button onClick={reset}>
                 Reset
             </button>
+            <Delete />
         </div>
     )
 }

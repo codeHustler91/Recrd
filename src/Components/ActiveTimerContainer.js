@@ -18,7 +18,6 @@ export default function ActiveTimerContainer(props) {
               'Content-Type': 'application/json'
         }})
         .then(() => {
-            console.log('id', props.profile.data.id)
             props.getProfile(props.profile.data.id)})
     }
 
@@ -28,7 +27,9 @@ export default function ActiveTimerContainer(props) {
                     ? 'Active Timers' 
                     : 'Timers go here'}
             </h1>
-            {displayTimers()}
+            <div className='reverse-column'>
+                {displayTimers()}
+            </div>
         </div>
     )
 }
