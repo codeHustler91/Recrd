@@ -3,7 +3,7 @@ import './styles.css'
 import ActiveTaskContainer from './Components/ActiveTaskContainer'
 import ActiveTimerContainer from './Components/ActiveTimerContainer'
 import TaskListContainer from './Components/TaskListContainer';
-import Login from './Components/Login';
+import SplashContainer from './Components/SplashContainer';
 import Settings from './Components/Settings';
 import Header from './Components/Header';
 import AppNotFound from './Components/AppNotFound';
@@ -37,25 +37,34 @@ export default class App extends Component {
             timers: [...this.state.timers, timerTask]
         })
     }
-
-    login = (id) => {
+ 
+    getProfile = (id) => {
         fetch(`http://localhost:3000/users/${id}`)
             .then(resp => resp.json())
-            .then(profile => this.setState({ profile, loggedIn: true }))
+            .then(profile => {
+                this.setState({
+                    profile: profile, 
+                    loggedIn: true
+                })
+        })
     }
     ifLoggedIn = () => {
         return this.state.loggedIn === true
             ? (<main className='sub-container'>
                 < TaskListContainer 
                     profile={this.state.profile} 
-                    setActiveTask={this.setActiveTask}/>
+                    setActiveTask={this.setActiveTask}
+                    getProfile={this.getProfile} />
                 < ActiveTaskContainer 
                     profile={this.state.profile} 
+                    getProfile={this.getProfile}
                     addTimer={this.addTimer}
                     activeTask={this.state.activeTask} 
                     activeAttempts={this.state.activeAttempts} />
                 < ActiveTimerContainer 
-                    timers={this.state.timers}/>
+                    timers={this.state.timers}
+                    getProfile={this.getProfile}
+                    profile={this.state.profile} />
             </main>)
             : null
     }
@@ -73,9 +82,22 @@ export default class App extends Component {
         return(
             <Router>
                 <Switch>
-                    <Route exact path='/' render={ (props) => <Login {...props} login={this.login} />}/>
+                    <Route exact path='/' 
+                        render={ (props) => 
+                            <SplashContainer 
+                                {...props} 
+                                getProfile={this.getProfile} 
+                                isLoggedIn={this.state.loggedIn} 
+                            />}
+                    />
                     <Route path='/main' render={ this.main } />
-                    <Route path='/settings' component={ Settings } />
+                    <Route path='/settings' 
+                        render={ (props) => 
+                            <Settings
+                                {...props} 
+                                profile={this.state.profile} 
+                            />}
+                    />
                     <Route component={ AppNotFound }/>
                 </Switch>
             </Router>

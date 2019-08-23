@@ -23,6 +23,7 @@ const Timer = (props) => {
         }
         return () => clearInterval(interval)
     }, [isOn, seconds]);
+
     const displaytime = () => {
         if (seconds < 60) {
             return `${seconds}s`
@@ -35,13 +36,21 @@ const Timer = (props) => {
 
     return (
         <div className='timer'>
-            <h3>Timer for: {props.title}</h3>
+            <h3>
+                Timer for: {props.title}
+            </h3>
             <div className='time'>
                 <p>{displaytime()}</p>
             </div>
-            <button onClick={toggle}>{isOn ? 'Pause' : 'Start'}</button>
-            <button>Log {props.taskId}</button>
-            <button onClick={reset}>Reset</button>
+            <button onClick={toggle}>
+                {isOn ? 'Pause' : 'Start'}
+            </button>
+            <button onClick={(event) => props.postTime(event, {task_id: props.taskId, duration: seconds})}>
+                Log {props.taskId}
+            </button>
+            <button onClick={reset}>
+                Reset
+            </button>
         </div>
     )
 }

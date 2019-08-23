@@ -1,20 +1,77 @@
-import React from 'react'
-import ActiveTask from './ActiveTask'
+import React, { Component } from 'react'
+import EditTaskForm from './EditTaskForm'
 
-export default function ActiveTaskContainer(props) {
 
-    const conditionalRender = () => {
-        return props.activeTask.id === undefined
-            ? <p>No task selected</p>
-            : < ActiveTask activeTask={props.activeTask} 
-                activeAttempts={props.activeAttempts} 
-                addTimer={props.addTimer}
-            />
+export default class ActiveTaskContainer extends Component {
+
+    state = {
+        showForm: false
     }
-    return(
-        <div className='component-container'>
-            <h1>Active Task</h1>
-            {conditionalRender()}
-        </div>
-    )
+    showForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
+    }
+    // conditionalTasks = () => {
+    //     return this.props.activeTask.id === undefined
+    //         ? <p>No task selected</p>
+    //         : < ActiveTask activeTask={this.props.activeTask} 
+    //             activeAttempts={this.props.activeAttempts} 
+    //             addTimer={this.props.addTimer}
+    //             getProfile={this.props.getProfile}
+    //             showForm={this.showForm}
+    //             isShowForm={this.state.showForm}
+    //             profile={this.props.profile}
+    //         />
+    // }
+    editTask = (event, data) => {
+        event.preventDefault()
+        const url = `http://localhost:3000/tasks/${this.props.activeTask.id}`
+        event.target.reset()
+        fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify(data),
+            headers:{
+              'Content-Type': 'application/json'
+        }})
+        .then(() => this.props.getProfile(this.props.activeTask.user_id))
+    }
+    displayAttempts = () => {
+        return this.props.activeAttempts.map(attempt => {
+            return <li className='new-item' key={attempt.id}>Attempt: {attempt.duration}seconds</li>
+        })
+    }
+    conditionalForm = () => {
+        return this.state.showForm 
+            ? <EditTaskForm 
+                editTask={this.editTask}/> 
+            : null
+    }
+    render() {
+        return(
+            <div className='component-container'>
+                <h1>Active Task</h1>
+                <div className='component-list'>
+                    <h3>Title: {this.props.activeTask.title}</h3>
+                    <p>Note: {this.props.activeTask.note}</p>
+                    <ul>
+                        {this.displayAttempts()}
+                    </ul>
+                    <button onClick={() => this.showForm()}>
+                        {this.state.showForm ? 'Hide Form' : 'Edit Task'}
+                    </button>
+                    <button onClick={this.props.addTimer}>New Timer</button>
+                    {this.conditionalForm()}
+                </div>
+                {/* < ActiveTask activeTask={this.props.activeTask} 
+                    activeAttempts={this.props.activeAttempts} 
+                    addTimer={this.props.addTimer}
+                    getProfile={this.props.getProfile}
+                    showForm={this.showForm}
+                    isShowForm={this.state.showForm}
+                    profile={this.props.profile} /> */}
+                {/* {this.conditionalTasks()} */}
+            </div>
+        )
+    }
 }

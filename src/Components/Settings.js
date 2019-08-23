@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Settings extends Component {
 
@@ -12,20 +13,41 @@ export default class Settings extends Component {
             [event.target.name]: event.target.value
         })
     }
+    updateUser = (event) => {
+        event.preventDefault()
+        const url = `http://localhost:3000/users/${this.props.profile.data.id}`
+        const data = {
+            name: this.state.name,
+            theme: this.state.theme
+        }
+        event.target.reset()
+        fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify(data),
+            headers:{
+              'Content-Type': 'application/json'
+        }})
+    }
 
     render() {
         return(
-            <div className='splash'>
+            <div className='splash-component'>
                 <h2>RECRD</h2>
-                <form >
-                    <input type='text' placeholder='enter name here' name='name' onChange={this.setInput}></input>
+                <h3>{this.props.profile.data.attributes.name}</h3>
+                <form onSubmit={this.updateUser}>
+                    <input type='text' placeholder='change name here' name='name' onChange={this.setInput}></input>
                     <select id='theme-select' onChange={this.setInput} name='theme'>
+                        <option value='default' >Choose Theme</option>
                         <option value='dark' >Dark</option>
                         <option value='light' >Light</option>
-                        <option value='light' >Aqua</option>
-                        <option value='light' >Autumn</option>
+                        {/* <option value='aqua' >Aqua</option> */}
                     </select>
                     <button type='submit'>Update User</button>
+                    <Link to="/main">
+                        <button>
+                            Go Back
+                        </button>
+                     </Link>
                 </form>
             </div>
         )

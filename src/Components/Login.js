@@ -23,7 +23,7 @@ export default class Login extends Component {
         event.target.reset()
         if (user[0].id) {
             this.setState({ loggedIn: true })
-            this.props.login(user[0].id)
+            this.props.getProfile(user[0].id)
         } else {
             return <Redirect to='/' />
         }
@@ -40,11 +40,17 @@ export default class Login extends Component {
             return <Redirect to='/main' />
         }
         return(
-            <div className='splash'>
-                <h2>RECRD</h2>
+            <div className='splash-component'>
+                <h3>Login</h3>
                 <form onSubmit={this.filterUser}>
-                    <input type='text' placeholder='enter name here' name='name' onChange={this.setInput}></input>
-                    <button type='submit'>Find User</button>
+                    <input type='text' 
+                        placeholder='enter name here' 
+                        name='name' 
+                        onChange={this.setInput}>
+                    </input>
+                    <button type='submit'>
+                        Find User
+                    </button>
                 </form>
             </div>
         )

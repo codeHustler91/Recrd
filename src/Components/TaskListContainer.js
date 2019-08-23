@@ -5,8 +5,7 @@ import NewTaskForm from './NewTaskForm';
 export default class TaskListContainer extends Component {
 
     state = {
-        showForm: false,
-        tasks: [...this.props.profile.data.attributes.tasks]
+        showForm: false
     }
 
     addTask = (event, taskObject) => {
@@ -28,7 +27,13 @@ export default class TaskListContainer extends Component {
     }
     
     render(){
-        const conditionalForm = this.state.showForm === true ? <NewTaskForm addTask={this.addTask}/> : null
+        const conditionalForm = this.state.showForm === true 
+            ? <NewTaskForm 
+                profile={this.props.profile} 
+                addTask={this.addTask} 
+                showForm={this.showForm}
+                getProfile={this.props.getProfile}/> 
+            : null
         return(
             <div className='component-container'>
                 {this.displayName()}
@@ -36,12 +41,11 @@ export default class TaskListContainer extends Component {
                     <TaskList 
                         setActiveTask={this.props.setActiveTask}
                         profile={this.props.profile.data} 
-                        tasks={this.state.tasks}
+                        tasks={this.props.profile.data.attributes.tasks}
                     />
                     <button onClick={()=>this.showForm()}>
                         {this.state.showForm ? 'Hide Form' : 'New Task'}
                     </button>
-                    <button>New Timer</button>
                     {conditionalForm}
                 </div>
             </div>

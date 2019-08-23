@@ -11,14 +11,32 @@ export default class NewTaskForm extends Component {
             [event.target.name]: event.target.value
         })
     }
+    createTask = (event) => {
+        event.preventDefault()
+        const url = `http://localhost:3000/tasks`
+        const data = {
+            title: this.state.title,
+            note: this.state.note,
+            user_id: this.props.profile.data.id
+        }
+        event.target.reset()
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers:{
+              'Content-Type': 'application/json'
+        }})
+        .then(() => this.props.getProfile(data.user_id))
+    }
 
     render(){
-        const taskObject = {
-            title: this.state.title,
-            note: this.state.note
-        }
+        // const taskObject = {
+            //     title: this.state.title,
+            //     note: this.state.note
+            // }
+            // this.props.addTask(event, taskObject)
         return(
-            <form onSubmit={(event)=>this.props.addTask(event, taskObject)}>
+            <form onSubmit={this.createTask}>
                 <label>
                     <input type='text' name='title' 
                         placeholder='enter task name'
