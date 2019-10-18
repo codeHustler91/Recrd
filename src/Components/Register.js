@@ -15,7 +15,7 @@ export default class Register extends Component {
     }
     createUser = (event) => {
         event.preventDefault()
-        const url = 'http://localhost:3000/users'
+        const url = 'https://recrd-rails-backend.herokuapp.com/users'
         const data = {
             name: this.state.name,
             theme: this.state.theme
