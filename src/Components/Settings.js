@@ -39,7 +39,7 @@ export default class Settings extends Component {
                     <select id='theme-select' onChange={this.setInput} name='theme'>
                         <option value='default' >Choose Theme</option>
                         <option value='dark' >Dark</option>
-                        <option value='light' >Light</option>
+                        <option value='light' >Light- Coming Soon!</option>
                         {/* <option value='aqua' >Aqua</option> */}
                     </select>
                     <button type='submit'>Update User</button>

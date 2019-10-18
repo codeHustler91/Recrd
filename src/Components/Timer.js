@@ -17,8 +17,8 @@ const Timer = (props) => {
         let interval = null;
         if (isOn) {
             interval = setInterval(() => {
-                setSeconds(seconds => seconds + 0.5)
-            }, 500)
+                setSeconds(seconds => seconds + 0.25)
+            }, 250)
         } else if (!isOn && seconds !== 0) {
             clearInterval(interval)
         }

@@ -10,7 +10,7 @@ export default class Login extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3000/users/`)
+        fetch('https://recrd-rails-backend.herokuapp.com/users')
             .then(resp => resp.json())
             .then(profiles => this.setState({ profiles }))
     }
@@ -21,6 +21,7 @@ export default class Login extends Component {
             return profile.name.toLowerCase() === this.state.name.toLowerCase()
         })
         event.target.reset()
+        console.log(user)
         if (user[0].id) {
             this.setState({ loggedIn: true })
             this.props.getProfile(user[0].id)

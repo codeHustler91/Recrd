@@ -47,7 +47,7 @@ export default class Register extends Component {
                             <select onChange={this.setInput} name='theme'>
                                 <option value='default' >Choose Theme</option>
                                 <option value='dark' >Dark</option>
-                                <option value='light' >Light</option>
+                                <option value='light' >Light- Coming Soon!</option>
                                 {/* <option value='Aqua' >Aqua</option> */}
                             </select>
                         <button type='submit'>Create User</button>

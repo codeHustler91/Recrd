@@ -40,7 +40,7 @@ export default class App extends Component {
     }
  
     getProfile = (id) => {
-        fetch(`http://localhost:3000/users/${id}`)
+        fetch(`https://recrd-rails-backend.herokuapp.com/users/${id}`)
             .then(resp => resp.json())
             .then(profile => {
                 this.setState({
