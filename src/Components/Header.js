@@ -9,9 +9,7 @@ export default function Header (props) {
                     <Link to="/settings">
                         <h3>User Settings</h3>
                     </Link>
-                    <Link to="/">
-                        <h3>Logout</h3>
-                    </Link>
+                    <h3 onClick={() => props.logout()}>Logout</h3>
                 </div>
             :   <Link to="/">
                     <h3>go to home path /</h3>

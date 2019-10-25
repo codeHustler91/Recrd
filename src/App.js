@@ -38,7 +38,6 @@ export default class App extends Component {
             timers: [...this.state.timers, timerTask]
         })
     }
- 
     getProfile = (id) => {
         fetch(`https://recrd-rails-backend.herokuapp.com/users/${id}`)
             .then(resp => resp.json())
@@ -51,7 +50,12 @@ export default class App extends Component {
             loggedIn: true
         })
     }
-
+    logout = () => {
+        this.setState({
+            loggedIn: false
+        })
+    }
+    
     ifLoggedIn = () => {
         return this.state.loggedIn === true
             ? (<main className='sub-container'>
@@ -75,11 +79,13 @@ export default class App extends Component {
             </main>)
             : null
     }
-
     main = () => {
         return(
             <div id='main-container'>
-                <Header isLoggedIn={this.state.loggedIn}/>
+                <Header 
+                    isLoggedIn={this.state.loggedIn}
+                    logout={this.logout}
+                />
                 {this.ifLoggedIn()}
             </div>
         )
