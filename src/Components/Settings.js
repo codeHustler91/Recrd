@@ -5,12 +5,18 @@ export default class Settings extends Component {
 
     state = {
         name: '',
-        theme: ''
+        theme: '',
+        updateSuccessful: false
     }
 
     setInput = (event) => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+    setSuccessful = () => {
+        this.setState({
+            updateSuccessful: true
         })
     }
     updateUser = (event) => {
@@ -29,9 +35,13 @@ export default class Settings extends Component {
         }})
         .then(resp => resp.json())
         .then(this.props.setProfile)
+        .then(this.setSuccessful)
     }
 
     render() {
+        if ( this.state.updateSuccessful === true ) {
+            return <Redirect to='/main' />
+        }
         return(
             <div className='splash-component'>
                 <h2>RECRD</h2>
@@ -44,16 +54,12 @@ export default class Settings extends Component {
                         <option value='light' >Light- Coming Soon!</option>
                         <option value='aqua' >Aqua- Coming Soon!</option>
                     </select>
+                    <button type='submit'>Update User</button>
                     <Link to="/main">
-                        <button type='submit'>
-                            Update User
-                        </button>
-                    </Link>
-                    {/* <Link to="/main">
                         <button>
                             Go Back
                         </button>
-                    </Link> */}
+                    </Link>
                 </form>
             </div>
         )
