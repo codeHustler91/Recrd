@@ -28,7 +28,8 @@ export default class Register extends Component {
               'Content-Type': 'application/json'
         }})
         .then(resp => resp.json())
-        .then(this.props.setProfile)
+        .then(resp => this.props.setProfile(resp))
+        // .then(resp => this.props.getProfile(resp.id))
     }
 
     render () {

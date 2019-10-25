@@ -82,6 +82,7 @@ export default class App extends Component {
                     setProfile={this.setProfile} />
             </main>)
             :   <SplashContainer
+                    setProfile={this.setProfile}
                     getProfile={this.getProfile}
                     isLoggedIn={this.state.loggedIn}
                 />
@@ -106,8 +107,9 @@ export default class App extends Component {
                         render={ (props) => 
                             <SplashContainer 
                                 {...props} 
-                                getProfile={this.getProfile} 
-                                isLoggedIn={this.state.loggedIn} 
+                                setProfile={this.setProfile}
+                                getProfile={this.getProfile}
+                                isLoggedIn={this.state.loggedIn}
                             />}
                     />
                     <Route path='/main' render={ this.main } />
