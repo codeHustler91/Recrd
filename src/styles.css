@@ -29,7 +29,6 @@ footer {
 }
 a {
     text-decoration: none;
-    cursor: pointer;
 }
 a h3{
     color: rgb(236, 215, 208);
@@ -44,6 +43,7 @@ a h3:hover{
     border-radius: 0.15em;
     padding: 0.35em;
     border: 1px solid rgb(236, 215, 208);
+    cursor: pointer;
 }
 input {
     width: 93%;

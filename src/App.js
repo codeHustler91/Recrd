@@ -78,8 +78,7 @@ export default class App extends Component {
                     activeTask={this.state.activeTask} 
                     timers={this.state.timers}
                     setActiveTask={this.setActiveTask}
-                    getProfile={this.getProfile}
-                    profile={this.state.profile} />
+                    setProfile={this.setProfile} />
             </main>)
             :   <SplashContainer 
                     getProfile={this.getProfile}

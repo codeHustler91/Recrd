@@ -9,7 +9,7 @@ export default function ActiveTimerContainer(props) {
                         activeTask={props.activeTask} 
                         taskId={timer.taskId} 
                         postTime={postTime} 
-                        setActiveTask={props.setActiveTask}
+                        // setActiveTask={props.setActiveTask}
                     />
         })
     }
@@ -22,8 +22,9 @@ export default function ActiveTimerContainer(props) {
             headers:{
               'Content-Type': 'application/json'
         }})
-        .then(() => {
-            props.getProfile(props.profile.data.id)})
+        .then(resp => resp.json())
+        .then(props.setProfile)
+        .then(() => props.setActiveTask(props.activeTask.id))
     }
 
     return(
