@@ -15,7 +15,7 @@ export default class Settings extends Component {
     }
     updateUser = (event) => {
         event.preventDefault()
-        const url = `http://localhost:3000/users/${this.props.profile.data.id}`
+        const url = `https://recrd-rails-backend.herokuapp.com/users/${this.props.profile.data.id}`
         const data = {
             name: this.state.name,
             theme: this.state.theme
@@ -40,7 +40,7 @@ export default class Settings extends Component {
                         <option value='default' >Choose Theme</option>
                         <option value='dark' >Dark</option>
                         <option value='light' >Light- Coming Soon!</option>
-                        {/* <option value='aqua' >Aqua</option> */}
+                        <option value='aqua' >Aqua- Coming Soon!</option>
                     </select>
                     <button type='submit'>Update User</button>
                     <Link to="/main">

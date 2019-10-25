@@ -15,7 +15,7 @@ export default function ActiveTimerContainer(props) {
     }
     const postTime = (event, data) => {
         event.preventDefault()
-        const url = 'http://localhost:3000/attempts/'
+        const url = 'https://recrd-rails-backend.herokuapp.com/attempts/'
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),

@@ -13,21 +13,10 @@ export default class ActiveTaskContainer extends Component {
             showForm: !this.state.showForm
         })
     }
-    // conditionalTasks = () => {
-    //     return this.props.activeTask.id === undefined
-    //         ? <p>No task selected</p>
-    //         : < ActiveTask activeTask={this.props.activeTask} 
-    //             activeAttempts={this.props.activeAttempts} 
-    //             addTimer={this.props.addTimer}
-    //             getProfile={this.props.getProfile}
-    //             showForm={this.showForm}
-    //             isShowForm={this.state.showForm}
-    //             profile={this.props.profile}
-    //         />
-    // }
+
     editTask = (event, data) => {
         event.preventDefault()
-        const url = `http://localhost:3000/tasks/${this.props.activeTask.id}`
+        const url = `https://recrd-rails-backend.herokuapp.com/tasks/${this.props.activeTask.id}`
         event.target.reset()
         fetch(url, {
             method: 'PATCH',
@@ -68,4 +57,17 @@ export default class ActiveTaskContainer extends Component {
             </div>
         )
     }
+    // don't know if i need the stuff below
+    // conditionalTasks = () => {
+    //     return this.props.activeTask.id === undefined
+    //         ? <p>No task selected</p>
+    //         : < ActiveTask activeTask={this.props.activeTask} 
+    //             activeAttempts={this.props.activeAttempts} 
+    //             addTimer={this.props.addTimer}
+    //             getProfile={this.props.getProfile}
+    //             showForm={this.showForm}
+    //             isShowForm={this.state.showForm}
+    //             profile={this.props.profile}
+    //         />
+    // }
 }

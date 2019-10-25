@@ -13,7 +13,7 @@ export default class NewTaskForm extends Component {
     }
     createTask = (event) => {
         event.preventDefault()
-        const url = `http://localhost:3000/tasks`
+        const url = 'https://recrd-rails-backend.herokuapp.com/tasks'
         const data = {
             title: this.state.title,
             note: this.state.note,
