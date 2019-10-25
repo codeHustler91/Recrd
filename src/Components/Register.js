@@ -28,9 +28,7 @@ export default class Register extends Component {
               'Content-Type': 'application/json'
         }})
         .then(resp => resp.json())
-        .then(resp => console.log('create user return data', resp))
-        // .then(this.props.setProfile)
-        // .then(resp => this.props.getProfile(resp.id))
+        .then(this.props.setProfile)
     }
 
     render () {
