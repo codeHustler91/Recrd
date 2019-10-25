@@ -42,11 +42,13 @@ export default class App extends Component {
     getProfile = (id) => {
         fetch(`https://recrd-rails-backend.herokuapp.com/users/${id}`)
             .then(resp => resp.json())
-            .then(profile => {
-                this.setState({
-                    profile: profile, 
-                    loggedIn: true
-                })
+            .then(this.setProfile)
+    }
+    setProfile = (profile) => {
+        console.log(profile)
+        this.setState({
+            profile: profile, 
+            loggedIn: true
         })
     }
 
@@ -99,7 +101,8 @@ export default class App extends Component {
                     <Route path='/settings' 
                         render={ (props) => 
                             <Settings
-                                {...props} 
+                                {...props}
+                                setProfile={this.setProfile}
                                 profile={this.state.profile} 
                             />}
                     />

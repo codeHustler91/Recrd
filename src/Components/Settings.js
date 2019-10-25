@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 export default class Settings extends Component {
 
@@ -27,6 +27,8 @@ export default class Settings extends Component {
             headers:{
               'Content-Type': 'application/json'
         }})
+        .then(resp => resp.json())
+        .then(this.props.setProfile)
     }
 
     render() {
@@ -42,12 +44,16 @@ export default class Settings extends Component {
                         <option value='light' >Light- Coming Soon!</option>
                         <option value='aqua' >Aqua- Coming Soon!</option>
                     </select>
-                    <button type='submit'>Update User</button>
                     <Link to="/main">
+                        <button type='submit'>
+                            Update User
+                        </button>
+                    </Link>
+                    {/* <Link to="/main">
                         <button>
                             Go Back
                         </button>
-                     </Link>
+                    </Link> */}
                 </form>
             </div>
         )

@@ -48,7 +48,7 @@ export default class Register extends Component {
                                 <option value='default' >Choose Theme</option>
                                 <option value='dark' >Dark</option>
                                 <option value='light' >Light- Coming Soon!</option>
-                                {/* <option value='Aqua' >Aqua</option> */}
+                                <option value='Aqua' >Aqua- Coming Soon!</option>
                             </select>
                         <button type='submit'>Create User</button>
                     </form>
