@@ -24,6 +24,7 @@ export default class App extends Component {
             return task.id === taskId })
         const attempts = this.state.profile.data.attributes.attempts.filter( attempt => {
             return attempt.task_id === taskId })
+        console.log(taskId, attempts, task)
         this.setState({
             activeTask: task[0],
             activeAttempts: attempts
@@ -44,7 +45,7 @@ export default class App extends Component {
             .then(this.setProfile)
     }
     setProfile = (profile) => {
-        console.log(profile)
+        console.log('set profile', profile)
         this.setState({
             profile: profile, 
             loggedIn: true
@@ -80,7 +81,7 @@ export default class App extends Component {
                     setActiveTask={this.setActiveTask}
                     setProfile={this.setProfile} />
             </main>)
-            :   <SplashContainer 
+            :   <SplashContainer
                     getProfile={this.getProfile}
                     isLoggedIn={this.state.loggedIn}
                 />

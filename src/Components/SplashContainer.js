@@ -8,8 +8,10 @@ export default function SplashContainer(props) {
         <div className='splash-container'>
             <h2>RECRD</h2>
             <div className='horizontal-row'>
-                < Register getProfile={props.getProfile} 
-                    isLoggedIn={props.isLoggedIn}/>
+                < Register
+                    setProfile={props.setProfile} 
+                    isLoggedIn={props.isLoggedIn}
+                />
                 < Login getProfile={props.getProfile}/>
             </div>
         </div>
