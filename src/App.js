@@ -52,8 +52,11 @@ export default class App extends Component {
     }
     logout = () => {
         this.setState({
+            profile: {},
             loggedIn: false,
-            profile: {}
+            activeTask: {},
+            activeAttempts: [],
+            timers: []
         })
     }
 

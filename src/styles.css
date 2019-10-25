@@ -29,6 +29,7 @@ footer {
 }
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 a h3{
     color: rgb(236, 215, 208);
