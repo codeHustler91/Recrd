@@ -52,7 +52,8 @@ export default class App extends Component {
     }
     logout = () => {
         this.setState({
-            loggedIn: false
+            loggedIn: false,
+            profile: {}
         })
     }
 
