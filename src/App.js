@@ -55,7 +55,7 @@ export default class App extends Component {
             loggedIn: false
         })
     }
-    
+
     ifLoggedIn = () => {
         return this.state.loggedIn === true
             ? (<main className='sub-container'>
@@ -77,7 +77,10 @@ export default class App extends Component {
                     getProfile={this.getProfile}
                     profile={this.state.profile} />
             </main>)
-            : null
+            :   <SplashContainer 
+                    getProfile={this.getProfile}
+                    isLoggedIn={this.state.loggedIn}
+                />
     }
     main = () => {
         return(
