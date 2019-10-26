@@ -67,7 +67,7 @@ export default class App extends Component {
                     tasks={this.state.profile.data.attributes.tasks}
                     profile={this.state.profile} 
                     setActiveTask={this.setActiveTask}
-                    getProfile={this.getProfile} />
+                    setProfile={this.setProfile} />
                 < ActiveTaskContainer 
                     profile={this.state.profile} 
                     getProfile={this.getProfile}

@@ -26,7 +26,9 @@ export default class NewTaskForm extends Component {
             headers:{
               'Content-Type': 'application/json'
         }})
-        .then(() => this.props.getProfile(data.user_id))
+        .then(resp => resp.json())
+        .then(console.log)
+        // .then(() => this.props.setProfile(data.user_id))
     }
 
     render(){
