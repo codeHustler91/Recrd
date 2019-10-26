@@ -23,8 +23,7 @@ export default function ActiveTimerContainer(props) {
               'Content-Type': 'application/json'
         }})
         .then(resp => resp.json())
-        .then(console.log)
-        // .then(() => props.setActiveTask(props.activeTask.id))
+        .then(() => props.setActiveTask(props.activeTask.id))
     }
 
     return(

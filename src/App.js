@@ -24,7 +24,6 @@ export default class App extends Component {
             return task.id === taskId })
         const attempts = this.state.profile.data.attributes.attempts.filter( attempt => {
             return attempt.task_id === taskId })
-        console.log(taskId, attempts, task)
         this.setState({
             activeTask: task[0],
             activeAttempts: attempts
