@@ -29,6 +29,11 @@ export default class App extends Component {
             activeAttempts: attempts
         })
     }
+    setActiveAttempt = (attemptResponse) => {
+        this.setState({
+            activeAttempts: [...this.state.activeAttempts, attemptResponse]
+        })
+    }
     addTimer = () => {
         const timerTask = {
             taskId: this.state.activeTask.id,
@@ -75,9 +80,10 @@ export default class App extends Component {
                     activeTask={this.state.activeTask} 
                     activeAttempts={this.state.activeAttempts} />
                 < ActiveTimerContainer
-                    activeTask={this.state.activeTask} 
+                    // activeTask={this.state.activeTask}
                     timers={this.state.timers}
-                    setActiveTask={this.setActiveTask}
+                    setActiveAttempt={this.setActiveAttempt}
+                    // setActiveTask={this.setActiveTask}
                     setProfile={this.setProfile} />
             </main>)
             :   <SplashContainer

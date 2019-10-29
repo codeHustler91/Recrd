@@ -6,9 +6,9 @@ export default function ActiveTimerContainer(props) {
     const displayTimers = () => {
         return props.timers.map(timer => {
             return <Timer title={timer.title} 
-                        activeTask={props.activeTask} 
                         taskId={timer.taskId} 
                         postTime={postTime} 
+                        // activeTask={props.activeTask} 
                         // setActiveTask={props.setActiveTask}
                     />
         })
@@ -23,7 +23,10 @@ export default function ActiveTimerContainer(props) {
               'Content-Type': 'application/json'
         }})
         .then(resp => resp.json())
-        .then(() => props.setActiveTask(props.activeTask.id))
+        .then(resp => props.setActiveAttempt(resp))
+        // function to add attempt to active attempts array at app level using [data], 
+        // might need to restructure it, check state of activeAttempts to see what it should look like
+        // .then(() => props.setActiveTask(props.activeTask.id))
     }
 
     return(
