@@ -4,8 +4,8 @@ import Delete from './Delete'
 export default function Task(props) {
 
     const getProfileAndSetActiveTask = () => {
-        props.getProfile(props.profile.id)
-        .then( () => props.setActiveTask(props.task.id))
+        console.log('get profile and set active task clicked, props.profile.id', props.profile.id)
+        return props.getProfile(props.profile.id).then(props.setActiveTask(props.task.id))
     }
 
     return(
