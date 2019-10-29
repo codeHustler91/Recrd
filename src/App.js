@@ -63,18 +63,18 @@ export default class App extends Component {
     ifLoggedIn = () => {
         return this.state.loggedIn === true
             ? (<main className='sub-container'>
-                < TaskListContainer 
+                < TaskListContainer
                     tasks={this.state.profile.data.attributes.tasks}
                     profile={this.state.profile} 
                     setActiveTask={this.setActiveTask}
-                    setProfile={this.setProfile} />
-                < ActiveTaskContainer 
+                    getProfile={this.getProfile} />
+                < ActiveTaskContainer
                     profile={this.state.profile} 
                     getProfile={this.getProfile}
                     addTimer={this.addTimer}
                     activeTask={this.state.activeTask} 
                     activeAttempts={this.state.activeAttempts} />
-                < ActiveTimerContainer 
+                < ActiveTimerContainer
                     activeTask={this.state.activeTask} 
                     timers={this.state.timers}
                     setActiveTask={this.setActiveTask}

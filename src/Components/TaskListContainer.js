@@ -23,7 +23,7 @@ export default class TaskListContainer extends Component {
             ? <NewTaskForm 
                 profile={this.props.profile} 
                 showForm={this.showForm}
-                setProfile={this.props.setProfile}/> 
+                getProfile={this.props.getProfile}/> 
             : null
         return(
             <div className='component-container'>
