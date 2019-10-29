@@ -35,7 +35,8 @@ export default class TaskListContainer extends Component {
                     {conditionalForm}
                     <TaskList 
                         setActiveTask={this.props.setActiveTask}
-                        profile={this.props.profile.data} 
+                        profile={this.props.profile.data}
+                        getProfile={this.props.getProfile}
                         tasks={this.props.tasks}
                     />
                 </div>
