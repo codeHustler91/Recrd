@@ -34,10 +34,10 @@ export default class TaskListContainer extends Component {
                     </button>
                     {conditionalForm}
                     <TaskList 
-                        setActiveTask={this.props.setActiveTask}
                         profile={this.props.profile.data}
+                        tasks={this.props.profile.data.attributes.tasks}
                         getProfile={this.props.getProfile}
-                        tasks={this.props.tasks}
+                        getProfileAndSetActiveTask={this.props.getProfileAndSetActiveTask}
                     />
                 </div>
             </div>

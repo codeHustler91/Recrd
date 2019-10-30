@@ -19,6 +19,12 @@ export default class App extends Component {
         activeAttempts: [],
         timers: []
     }
+    editActiveTask = (event) => {
+        let edits = {...this.state.activeTask, [event.target.name]: event.target.value}
+        this.setState({
+            activeTask: edits
+        })
+    }
     setActiveTask = (taskId) => {
         const task = this.state.profile.data.attributes.tasks.filter(task => {
             return task.id === taskId })
@@ -30,9 +36,16 @@ export default class App extends Component {
         })
     }
     setActiveAttempt = (attemptResponse) => {
-        this.setState({
-            activeAttempts: [...this.state.activeAttempts, attemptResponse]
-        })
+        return attemptResponse.task_id === this.state.activeTask.id 
+            ? this.setState({
+                activeAttempts: [...this.state.activeAttempts, attemptResponse]
+                })
+            : null
+    }
+    getProfileAndSetActiveTask = (profileId, taskId) => {
+        this.getProfile(profileId)
+        this.setActiveTask(taskId)
+        console.log('asynchronus mess')
     }
     addTimer = () => {
         const timerTask = {
@@ -49,7 +62,6 @@ export default class App extends Component {
             .then(this.setProfile)
     }
     setProfile = (profile) => {
-        console.log('set profile', profile)
         this.setState({
             profile: profile, 
             loggedIn: true
@@ -69,29 +81,24 @@ export default class App extends Component {
         return this.state.loggedIn === true
             ? (<main className='sub-container'>
                 < TaskListContainer
-                    tasks={this.state.profile.data.attributes.tasks}
                     profile={this.state.profile} 
-                    setActiveTask={this.setActiveTask}
-                    getProfile={this.getProfile} />
+                    getProfile={this.getProfile} 
+                    getProfileAndSetActiveTask={this.getProfileAndSetActiveTask} />
                 < ActiveTaskContainer
                     profile={this.state.profile} 
                     getProfile={this.getProfile}
                     addTimer={this.addTimer}
+                    editActiveTask={this.editActiveTask}
                     activeTask={this.state.activeTask} 
                     activeAttempts={this.state.activeAttempts} />
                 < ActiveTimerContainer
-                    // activeTask={this.state.activeTask}
                     timers={this.state.timers}
-                    setActiveAttempt={this.setActiveAttempt}
-                    // setActiveTask={this.setActiveTask}
-                    // setProfile={this.setProfile}
-                />
+                    setActiveAttempt={this.setActiveAttempt} />
             </main>)
             :   <SplashContainer
                     setProfile={this.setProfile}
                     getProfile={this.getProfile}
-                    isLoggedIn={this.state.loggedIn}
-                />
+                    isLoggedIn={this.state.loggedIn} />
     }
     main = () => {
         return(

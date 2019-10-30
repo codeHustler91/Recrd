@@ -6,10 +6,9 @@ export default function TaskList(props) {
     const displayTasks = () => {
         return props.tasks.map(task => {
             return(
-                < Task setActiveTask={props.setActiveTask}
-                    profile={props.profile}
-                    getProfile={props.getProfile}
+                < Task profile={props.profile}
                     task={task}
+                    getProfileAndSetActiveTask={props.getProfileAndSetActiveTask}
                     key={task.id || (Math.floor(Math.random() * Math.floor(1000)))}
                 />
             )

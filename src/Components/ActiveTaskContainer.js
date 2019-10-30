@@ -8,12 +8,11 @@ export default class ActiveTaskContainer extends Component {
     state = {
         showForm: false
     }
-    showForm = () => {
+    toggleForm = () => {
         this.setState({
             showForm: !this.state.showForm
         })
     }
-
     editTask = (event, data) => {
         event.preventDefault()
         const url = `https://recrd-rails-backend.herokuapp.com/tasks/${this.props.activeTask.id}`
@@ -33,7 +32,9 @@ export default class ActiveTaskContainer extends Component {
     }
     conditionalForm = () => {
         return this.state.showForm 
-            ? <EditTaskForm 
+            ? <EditTaskForm
+                activeTask={this.props.activeTask}
+                setInput={this.props.editActiveTask}
                 editTask={this.editTask}/> 
             : null
     }
@@ -47,7 +48,7 @@ export default class ActiveTaskContainer extends Component {
                     <ul>
                         {this.displayAttempts()}
                     </ul>
-                    <button onClick={() => this.showForm()}>
+                    <button onClick={() => this.toggleForm()}>
                         {this.state.showForm ? 'Hide Form' : 'Edit Task'}
                     </button>
                     <button onClick={this.props.addTimer}>New Timer</button>
