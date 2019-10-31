@@ -36,7 +36,7 @@ export default class Settings extends Component {
         }})
         .then(resp => resp.json())
         .then(this.props.setProfile)
-        .then(this.setSuccessful)
+        .then(this.setSuccessful())
     }
 
     render() {
