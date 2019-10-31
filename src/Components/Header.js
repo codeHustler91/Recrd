@@ -6,7 +6,6 @@ export default function Header (props) {
     const logout = () => {
         props.logout()
     }
-
     const conditionalLink = () => {
         return props.isLoggedIn
             ?   <div className='horizontal-row'>
@@ -19,6 +18,7 @@ export default function Header (props) {
                     <h3>go to home path /</h3>
                 </Link>
     }
+    
     return (
         <header>
             <h1>RECRD</h1>

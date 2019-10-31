@@ -12,9 +12,7 @@ export default function ActiveTask(props) {
                     </li>
         })
     }
-
     const conditionalForm = () => {
-        console.log(props.isShowForm)
         return props.isShowForm === true ? <EditTaskForm profile={props.profile} /> : null
     }
 

@@ -37,7 +37,6 @@ const Timer = (props) => {
     const postAndReset = (event) => {
         props.postTime(event, {task_id: props.taskId, duration: seconds})
         setSeconds(0)
-        // props.setActiveTask(props.taskId)
     }
 
     return (

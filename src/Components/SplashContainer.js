@@ -10,9 +10,8 @@ export default function SplashContainer(props) {
             <div className='horizontal-row'>
                 < Register
                     setProfile={props.setProfile} 
-                    isLoggedIn={props.isLoggedIn}
-                />
-                < Login getProfile={props.getProfile}/>
+                    isLoggedIn={props.isLoggedIn} />
+                < Login getProfile={props.getProfile} />
             </div>
         </div>
     )

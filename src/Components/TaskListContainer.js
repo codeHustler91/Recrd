@@ -8,31 +8,32 @@ export default class TaskListContainer extends Component {
         showForm: false
     }
 
-    showForm = () => {
+    toggleForm = () => {
         this.setState({
             showForm: !this.state.showForm
         })
     }
-
     displayName = () => {
         return <h1>{this.props.profile.data.attributes.name.toUpperCase()}'s Task List</h1>
     }
-    
-    render(){
-        const conditionalForm = this.state.showForm === true 
+    conditionalForm = () => {
+        return this.state.showForm
             ? <NewTaskForm 
                 profile={this.props.profile} 
                 showForm={this.showForm}
                 getProfile={this.props.getProfile}/> 
             : null
+    }
+    
+    render(){
         return(
             <div className='component-container'>
                 {this.displayName()}
                 <div className='component-list'>
-                    <button onClick={()=>this.showForm()}>
+                    <button onClick={()=>this.toggleForm()}>
                         {this.state.showForm ? 'Hide Form' : 'New Task'}
                     </button>
-                    {conditionalForm}
+                    {this.conditionalForm()}
                     <TaskList 
                         profile={this.props.profile.data}
                         tasks={this.props.profile.data.attributes.tasks}

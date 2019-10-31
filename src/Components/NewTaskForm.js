@@ -31,7 +31,6 @@ export default class NewTaskForm extends Component {
     }
 
     render(){
-
         return(
             <form onSubmit={this.createTask}>
                 <label>

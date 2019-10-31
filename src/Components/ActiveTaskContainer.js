@@ -27,7 +27,7 @@ export default class ActiveTaskContainer extends Component {
     }
     displayAttempts = () => {
         return this.props.activeAttempts.map(attempt => {
-            return <li className='new-item' key={attempt.id}>Attempt: {attempt.duration}seconds</li>
+            return <li className='new-item' key={attempt.id}>Attempt: {attempt.duration} seconds</li>
         })
     }
     conditionalForm = () => {
@@ -58,17 +58,4 @@ export default class ActiveTaskContainer extends Component {
             </div>
         )
     }
-    // don't know if i need the stuff below
-    // conditionalTasks = () => {
-    //     return this.props.activeTask.id === undefined
-    //         ? <p>No task selected</p>
-    //         : < ActiveTask activeTask={this.props.activeTask} 
-    //             activeAttempts={this.props.activeAttempts} 
-    //             addTimer={this.props.addTimer}
-    //             getProfile={this.props.getProfile}
-    //             showForm={this.showForm}
-    //             isShowForm={this.state.showForm}
-    //             profile={this.props.profile}
-    //         />
-    // }
 }
