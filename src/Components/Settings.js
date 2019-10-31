@@ -6,19 +6,12 @@ export default class Settings extends Component {
     state = {
         name: '',
         theme: ''
-        // updateSuccessful: false
     }
 
     setInput = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
-    }
-    setSuccessful = () => {
-        return <Redirect to='/main' />
-        // this.setState({
-        //     updateSuccessful: true
-        // })
     }
     updateUser = (event) => {
         event.preventDefault()
@@ -36,13 +29,9 @@ export default class Settings extends Component {
         }})
         .then(resp => resp.json())
         .then(this.props.setProfile)
-        .then(this.setSuccessful())
     }
 
     render() {
-        // if ( this.state.updateSuccessful === true ) {
-        //     return <Redirect to='/main' />
-        // }
         return(
             <div className='splash-component'>
                 <h2>RECRD</h2>

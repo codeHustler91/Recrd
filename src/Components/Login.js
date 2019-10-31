@@ -21,7 +21,6 @@ export default class Login extends Component {
             return profile.name.toLowerCase() === this.state.name.toLowerCase()
         })
         event.target.reset()
-        console.log(user)
         if (user[0].id) {
             this.setState({ loggedIn: true })
             this.props.getProfile(user[0].id)

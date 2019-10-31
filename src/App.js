@@ -77,8 +77,19 @@ export default class App extends Component {
         })
     }
 
+    main = () => {
+        return(
+            <div id='main-container'>
+                <Header 
+                    isLoggedIn={this.state.loggedIn}
+                    logout={this.logout}
+                />
+                {this.ifLoggedIn()}
+            </div>
+        )
+    }
     ifLoggedIn = () => {
-        return this.state.loggedIn === true
+        return this.state.loggedIn
             ? (<main className='sub-container'>
                 < TaskListContainer
                     profile={this.state.profile} 
@@ -99,17 +110,6 @@ export default class App extends Component {
                     setProfile={this.setProfile}
                     getProfile={this.getProfile}
                     isLoggedIn={this.state.loggedIn} />
-    }
-    main = () => {
-        return(
-            <div id='main-container'>
-                <Header 
-                    isLoggedIn={this.state.loggedIn}
-                    logout={this.logout}
-                />
-                {this.ifLoggedIn()}
-            </div>
-        )
     }
 
     render() {
