@@ -3,6 +3,8 @@
 ## To-Do list app with timer
 
    * [RECRD website](https://recrd-react-front-end.firebaseapp.com/)
+   
+Deployed with Firebase
 
    * [Backend GitHub](https://github.com/codeHustler91/Recrd-backend)
 
@@ -53,3 +55,6 @@ Project by [@codeHustler91](https://github.com/codeHustler91)
 ### Assets used:
    * React.js
    * Redux
+   
+#### Credits
+   * Thanks to Google Firebase for hosting
