@@ -6,7 +6,7 @@
 
 [Backend GitHub](https://github.com/codeHustler91/Recrd-backend)
 
-Thanks for checking it out!
+Thanks for visiting!
 
 Project by [@codeHustler91](https://github.com/codeHustler91)
 
@@ -20,8 +20,8 @@ Project by [@codeHustler91](https://github.com/codeHustler91)
 
 ### Main User Page
    * Task List
-       * Save all your daily tasks
-       * write a note for each task
+       * Save your daily tasks
+       * Write a note for each task
        * Add new tasks
        * Click a task to start recording times!
    ![Adding Task](./public/assets/addingTask.gif)
@@ -37,7 +37,7 @@ Project by [@codeHustler91](https://github.com/codeHustler91)
    * Log out of your account
 
 ### Settings
-   * Change your mame
+   * Change your name
    * Change your theme (coming soon)
 
    ![Changing Names](./app/assets/changeName.gif)
@@ -55,4 +55,4 @@ Project by [@codeHustler91](https://github.com/codeHustler91)
       * [link to API!](https://www.datamuse.com/api/)
    * API : thanks to PoetryDB for giving open access to their api
       * [link to API!](http://poetrydb.org/index.html)
-   * Thanks to Flatiron Schools for guided support
+   * Thanks to Flatiron School for guided support
