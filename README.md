@@ -31,23 +31,23 @@ Project by [@codeHustler91](https://github.com/codeHustler91)
        * Edit task information
        * Click "New Timer" to get a stopwatch for that task
        
-   ![Edit Task](./app/assets/editTask.gif)
+   ![Edit Task](./public/assets/editTask.gif)
    * Metrics
        * After 3 data points have been captured:
        * Shows Shortest, Longest, Average, and Total times for the Task
        
-   ![Metrics](./app/assets/metrics.gif)
+   ![Metrics](./public/assets/metrics.gif)
    * Log out of your account
 
 ### Settings
    * Change your name
    * Change your theme (coming soon)
 
-   ![Changing Names](./app/assets/changeName.gif)
+   ![Changing Names](./public/assets/changeName.gif)
 
 ### Model
 
-   | User |---------<| Tasks |----------<| Attempts |
+   User ---------< Tasks ----------< Attempts
 
 ### Assets used:
    * React.js
