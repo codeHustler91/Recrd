@@ -24,15 +24,18 @@ Project by [@codeHustler91](https://github.com/codeHustler91)
        * write a note for each task
        * Add new tasks
        * Click a task to start recording times!
+       
    ![Adding Task](./public/assets/addingTask.gif)
    * Active Task
        * Show task
        * Edit task information
        * Click "New Timer" to get a stopwatch for that task
+       
    ![Edit Task](./app/assets/editTask.gif)
    * Metrics
        * After 3 data points have been captured:
        * Shows Shortest, Longest, Average, and Total times for the Task
+       
    ![Metrics](./app/assets/metrics.gif)
    * Log out of your account
 
