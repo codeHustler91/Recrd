@@ -47,6 +47,12 @@ export default class App extends Component {
         this.setActiveTask(taskId)
         console.log('asynchronus mess')
     }
+    // look up async/await in react??
+    // getProfileAndSetActiveTask = (profileId, taskId) => {
+    //     this.getProfile(profileId)
+    //     this.setActiveTask(taskId)
+    //     console.log('asynchronus mess')
+    // }
     addTimer = () => {
         const timerTask = {
             taskId: this.state.activeTask.id,
