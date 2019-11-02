@@ -1,81 +1,54 @@
 # RECRD
 
-## App to help users write rhyming poetry
+## To-Do list app with timer
 
-Project by [@codeHustler91](https://github.com/codeHustler91)
+[RECRD website](https://recrd-react-front-end.firebaseapp.com/)
+
+[Backend GitHub](https://github.com/codeHustler91/Recrd-backend)
 
 Thanks for checking it out!
 
-[Link to RECRD website](https://recrd-react-front-end.firebaseapp.com/)
+Project by [@codeHustler91](https://github.com/codeHustler91)
 
 ## Basic flow of app
 
 ### Welcome Menu
-   * Login or Register to create personalized account
-   * Get inspired by a random Shakespeare Sonnet!
-   * Visit the app github page and Flatiron School website through the links in the top right corner
+   * Login to existing account
+   * Register for new account
 
-   ![Welcome Menu](./app/assets/images/welcome.png)
+   ![Welcome Menu](./public/assets/welcomeScreenShot.png)
 
-### Create User/Sign Up
-   * Enter your Name, Username, and Password to securely login to your account
-   * Enjoy the number of users statistic, you may want to divide by 1 million...
-   
-   ![Create User](./app/assets/images/create_user.png)
-
-### Login
-   * Enter your existing username and password
-   * Check out the most recent poem entered into our database
-
-   ![Login](./app/assets/images/login.png)
-
-### Poem Index
-   * See a list of all the poems created by our creative users!
-
-   ![Poem Index](./app/assets/images/poem_index.png)
-
-### User Page
-   * List of Words
-       * Save all of your favorite words
-       * Click add word 
-       * See rhyming words
-       * See adjectives for words
-       * Delete your word
-   * List of Poems
-       * Click write your poem
-       * Save all of your poems
-       * Delete or edit your poems
+### Main User Page
+   * Task List
+       * Save all your daily tasks
+       * write a note for each task
+       * Add new tasks
+       * Click a task to start recording times!
+   ![Adding Task](./public/assets/addingTask.gif)
+   * Active Task
+       * Show task
+       * Edit task information
+       * Click "New Timer" to get a stopwatch for that task
+   ![Edit Task](./app/assets/editTask.gif)
+   * Metrics
+       * After 3 data points have been captured:
+       * Shows Shortest, Longest, Average, and Total times for the Task
+   ![Metrics](./app/assets/metrics.gif)
    * Log out of your account
-   * Delete your account
-       * Don't leave us!
 
-   ![User Page](./app/assets/images/user_page.png)
+### Settings
+   * Change your mame
+   * Change your theme (coming soon)
 
-### Write Poetry
-   * Title your poem
-   * Write your poem
-   * Use the favorite words list at the bottom of the page
-       * See rhymes of favorite words and use them in your poem!
-       * See adjectives for favorite words and use them in your poem!
-   * Click 'Create Poem' to save it to your profile
-   * Add more favorite words and then use the poem edit button to finish your masterpiece!
-
-   ![Write Poetry](./app/assets/images/write_poetry.png)
+   ![Changing Names](./app/assets/changeName.gif)
 
 ### Model
 
    | User |---------<| Tasks |----------<| Attempts |
 
 ### Assets used:
-   * Ruby
-   * jQuery
-   * Sinatra
-   * ActiveRecord
-   * Postgresql
-   * JSON
-   * Rake
-   * Rest-Client
-   * Binding.pry
+   * React.js
+   * Redux
 
 #### Credits
    * API : thanks to Datamuse API for giving open access to their api
