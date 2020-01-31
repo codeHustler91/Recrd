@@ -10,8 +10,6 @@ Deployed with Firebase
 
 Thanks for visiting!
 
-Project by [@codeHustler91](https://github.com/codeHustler91)
-
 ## Basic flow of app
 
 ### Welcome Menu
